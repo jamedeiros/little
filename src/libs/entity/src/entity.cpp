@@ -1,12 +1,28 @@
 #include "entity.h"
 
-Foo::Foo(int val) : _val(val) {
+using namespace std;
+
+BaseField ::BaseField(std::string name) {
+    this->name = name;
 }
 
-int Foo::getVal() const {
-    return _val;
+template <typename T>
+void Field ::operator=(T &value) {
+    this->value = value;
 }
 
-std::string Foo::bar() const {
-    return "Value: " + std::to_string(_val);
+Entity::Entity() {
+}
+
+Entity::~Entity() {
+    std::map<string, BaseField *>::iterator iter;
+
+    for (const auto &f : this->fields)
+        delete (*iter).second;
+
+    this->fields.clear();
+}
+
+void Entity::add_field(BaseField *field) {
+    this->fields[field->name] = field;
 }

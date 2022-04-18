@@ -22,7 +22,8 @@
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
 		"cmake.configureOnOpen": true,
-		"editor.formatOnSave": true
+		"editor.formatOnSave": true,
+		"editor.tabSize": 4
 	},
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
